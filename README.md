@@ -56,6 +56,6 @@ By default the tooltip is appended to the body element.  To append it to a diffe
 ```html
   <p>
      Only one word in this sentence will have a
-     <span tooltip parentSelector="expression" content="hello">tooltip</span>.
+     <span tooltip parentSelector=".page" content="hello">tooltip</span>.
   </p>
 ```
