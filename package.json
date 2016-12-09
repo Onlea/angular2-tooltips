@@ -1,6 +1,6 @@
 {
   "name": "angular2-tooltips",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "angular2 module to show tooltips over elements",
   "main": "index.js",
   "typings": "./index.d.ts",
