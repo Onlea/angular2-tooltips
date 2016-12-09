@@ -19,7 +19,7 @@ export interface TooltipOptions {
     </div>
   `,
   styles: [`
-    :host {
+    .tooltip {
       position:absolute;
       background: rgba(0,0,0,0.8);
       color: #fff;
