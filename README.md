@@ -21,12 +21,12 @@ import { TooltipModule } from 'angular2-tooltips';
 })
 ```
 
-Add the tooltip attribute with content to an element to display a tooltip on hover.
+Add the tooltip attribute with a string to display a tooltip over an element on hover.
 
 ```html
   <p>
      One word in this sentence will have a
-     <span tooltip content="hello">tooltip</span>.
+     <span tooltip="hello">tooltip</span>.
   </p>
 ```
 
@@ -36,7 +36,7 @@ If you don't want to display the tooltip on hover, you can control when it is di
 ```html
   <p>
      One word in this sentence will have a
-     <span tooltip [active]="expression" content="hello">tooltip</span>.
+     <span tooltip="hello" [active]="expression">tooltip</span>.
   </p>
 ```
 
@@ -46,7 +46,7 @@ To change the styling you can add a custom class to the tooltip by passing a cla
 ```html
   <p>
      One word in this sentence will have a
-     <span tooltip tooltipClass="custom-tooltip" content="hello">tooltip</span>.
+     <span tooltip="hello" tooltipClass="custom-tooltip">tooltip</span>.
   </p>
 ```
 
@@ -56,6 +56,6 @@ By default the tooltip is appended to the body element.  To append it to a diffe
 ```html
   <p>
      Only one word in this sentence will have a
-     <span tooltip parentSelector=".page" content="hello">tooltip</span>.
+     <span tooltip="hello" parentSelector=".page">tooltip</span>.
   </p>
 ```

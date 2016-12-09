@@ -1,9 +1,9 @@
 import {
   Input, Directive, ComponentRef, ElementRef, OnInit, OnDestroy, OnChanges,
   ViewContainerRef, ComponentFactoryResolver, Inject, SimpleChanges
-} from '@angular/core';
-import { TooltipComponent } from './tooltip.component';
-import { DOCUMENT } from '@angular/platform-browser';
+} from "@angular/core";
+import { TooltipComponent } from "./tooltip.component";
+import { DOCUMENT } from "@angular/platform-browser";
 
 
 /**
@@ -12,47 +12,47 @@ import { DOCUMENT } from '@angular/platform-browser';
  * @example:
  * <p>
  *    Only one word in this sentence will have a
- *    <span tooltip [active]="true" content="hello">tooltip</span>.
+ *    <span tooltip="hello" [active]="true">tooltip</span>.
  * </p>
  */
 @Directive({
-  selector: '[tooltip]',
+  selector: "[tooltip]",
   host: {
-    '(mouseover)': 'onMouseOver($event)',
-    '(mouseleave)' : 'onMouseLeave($event)'
+    "(mouseover)": "onMouseOver($event)",
+    "(mouseleave)": "onMouseLeave($event)"
   }
 })
 export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
-  private _tooltipRef : ComponentRef<TooltipComponent>;
-  @Input() parentSelector:string = "body"; // where the tooltip gets added
-  @Input() active:boolean; // used to manually enable / disable
-  @Input() content:string; // content for the tooltip
-  @Input() tooltipClass:string; // class for the tooltip element
+  private _tooltipRef: ComponentRef<TooltipComponent>;
+  @Input() parentSelector: string = "body"; // where the tooltip gets added
+  @Input() active: boolean; // used to manually enable / disable
+  @Input() tooltip: string; // content for the tooltip
+  @Input() tooltipClass: string; // class for the tooltip element
 
   constructor(
     private _resolver: ComponentFactoryResolver,
     private _container: ViewContainerRef,
     private _el: ElementRef,
-    @Inject(DOCUMENT) private _document:any
+    @Inject(DOCUMENT) private _document: any
   ) {}
 
   /**
    * Add the tooltip component on init.
    */
-  ngOnInit():void { this.addTooltip(); }
+  ngOnInit(): void { this.addTooltip(); }
 
   /**
    * Destroy the tooltip component on destroy.
    */
-  ngOnDestroy():void { if(this._tooltipRef) { this._tooltipRef.destroy(); } }
+  ngOnDestroy(): void { if (this._tooltipRef) { this._tooltipRef.destroy(); } }
 
   /**
    * Listens for active state changes and shows / hides the tooltip
    * based on the value.
    */
-  ngOnChanges(changes: SimpleChanges):void {
-    if(changes["active"] && typeof this.active !== "undefined") {
-      if(changes["active"]["currentValue"]) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes["active"] && typeof this.active !== "undefined") {
+      if (changes["active"]["currentValue"]) {
         this.showTooltip();
       } else {
         this.hideTooltip();
@@ -64,16 +64,16 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
    * Show the tooltip on hover, if it is not being manually shown / hidden
    * by the active attribute.
    */
-  onMouseOver(ev:MouseEvent):void {
-    if(typeof this.active == "undefined") { this.showTooltip(); }
+  onMouseOver(ev: MouseEvent): void {
+    if (typeof this.active === "undefined") { this.showTooltip(); }
   }
 
   /**
    * Hide the tooltip on leave, if it is not being manually shown / hidden
    * by the active attribute.
    */
-  onMouseLeave(ev:MouseEvent):void {
-    if(typeof this.active == "undefined") { this.hideTooltip(); }
+  onMouseLeave(ev: MouseEvent): void {
+    if (typeof this.active === "undefined") { this.hideTooltip(); }
   }
 
   /**
@@ -88,8 +88,8 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
    */
   private waitForFinalValue(
     valFunc: () => any,
-    options:Object = {}
-  ):Promise<any> {
+    options: Object = {}
+  ): Promise<any> {
     // override default options
     let ops = Object.assign({
       threshold: 5,
@@ -102,7 +102,7 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
       let totalTime = 0; // track total time
       let checks = 0; // track the number of consecutive checks
       let interval = setInterval(() => {
-        if(checks > ops.threshold) {
+        if (checks > ops.threshold) {
           clearInterval(interval);
           resolve(value);
         } else if (totalTime > ops.timeout) {
@@ -110,7 +110,7 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
           reject("Timed out when waiting for a final value.");
         }
         totalTime += ops.intervalTime;
-        if(value == valFunc()) {
+        if (value === valFunc()) {
           checks++;
         } else {
           // value changed, reset.
@@ -124,9 +124,9 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
   /**
    * Dynamically adds a tooltip component
    */
-  public addTooltip():Promise<ComponentRef<TooltipComponent>> {
+  public addTooltip(): Promise<ComponentRef<TooltipComponent>> {
     // resolve the promise if the tooltip already exists
-    if(this._tooltipRef) { return Promise.resolve(this._tooltipRef); }
+    if (this._tooltipRef) { return Promise.resolve(this._tooltipRef); }
     // add the tooltip when the element is in place
     return this.waitForFinalValue(() => this._el.nativeElement.offsetTop)
       .then(() => {
@@ -146,10 +146,10 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
    * Adds the tooltip (if it doesn't already exist) and then activates
    * the component.
    */
-  public showTooltip():Promise<ElementRef> {
+  public showTooltip(): Promise<ElementRef> {
     return this.addTooltip().then((ref) => {
       return ref.instance.renderTooltip(this._el, {
-        content: this.content,
+        content: this.tooltip,
         active: true,
         tooltipClass: this.tooltipClass
       });
@@ -159,10 +159,10 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
   /**
    * Deactivates the tooltip component if it exists.
    */
-  public hideTooltip():void {
-    if(this._tooltipRef) {
+  public hideTooltip(): void {
+    if (this._tooltipRef) {
       this._tooltipRef.instance.renderTooltip(this._el, {
-        content: this.content,
+        content: this.tooltip,
         active: false,
         tooltipClass: this.tooltipClass
       });
