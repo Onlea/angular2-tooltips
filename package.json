@@ -17,13 +17,5 @@
     "tooltip"
   ],
   "author": "Lane Olson <lane@onlea.org>",
-  "license": "ISC",
-  "dependencies": {
-    "@angular/common": "^2.3.0",
-    "@angular/core": "^2.3.0",
-    "@angular/platform-browser": "^2.3.0"
-  },
-  "devDependencies": {
-    "typescript": "^2.1.4"
-  }
+  "license": "ISC"
 }
