@@ -1,10 +1,10 @@
-# Node generated files
 node_modules
 npm-debug.log
-# OS generated files
+lib
 Thumbs.db
 .DS_Store
-# Ignored files
 *.js
 *.map
 *.d.ts
+!index.js
+!index.d.ts

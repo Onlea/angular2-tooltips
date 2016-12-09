@@ -9,7 +9,38 @@ export interface TooltipOptions {
  * This component is dynamically injected to a page via the tooltip directive
  */
 @Component({
-  templateUrl : 'tooltip.html',
+  template : `<div
+      class="tooltip"
+      [@tooltipState]="active?'active':'inactive'"
+      [ngClass]="tooltipClass"
+    >
+      <span class="tooltip-content"></span>
+      <span class="tooltip-arrow"></span>
+    </div>
+  `,
+  styles: [`
+    :host {
+      position:absolute;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      font-size:1.2rem;
+      line-height: 1.2;
+      padding:8px 12px;
+      border-radius: 3px;
+    }
+    .tooltip-content {
+      min-width:100px;
+    }
+    .tooltip-arrow {
+      position:absolute;
+      bottom: -10px;
+      border: 5px solid transparent;
+      border-top-color: rgba(0,0,0,0.8);
+      left:50%;
+      margin-left:-5px;
+    }
+
+  `],
   animations: [
     trigger('tooltipState', [
       state('active', style({

@@ -4,9 +4,13 @@
   "description": "angular2 module to show tooltips over elements",
   "main": "index.js",
   "typings": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Onlea/angular2-tooltips.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "tsc"
+    "build": "rm -rf lib && tsc"
   },
   "keywords": [
     "angular2",

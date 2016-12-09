@@ -2,14 +2,19 @@
     "compilerOptions": {
       "noImplicitAny": true,
       "module": "commonjs",
-      "target": "ES5",
+      "target": "es5",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "sourceMap": true,
-      "declaration": true
+      "declaration": true,
+      "removeComments": true,
+      "moduleResolution": "node",
+      "outDir": "./lib"
     },
     "files": [
-        "index.ts"
+        "src/tooltip.module.ts",
+        "src/tooltip.directive.ts",
+        "src/tooltip.component.ts"
     ],
     "exclude": [
         "node_modules"
