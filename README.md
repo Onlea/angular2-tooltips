@@ -4,8 +4,6 @@ Adapted from bharataj88's [angular2-tooltip](https://github.com/bharatraj88/angu
 
 ## Usage
 
-Currently having difficulty publishing this with NPM as javascript, so you must be using typescript.
-
 ```
 npm install angular2-tooltips --save
 ```
