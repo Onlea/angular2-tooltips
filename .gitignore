@@ -6,5 +6,3 @@ Thumbs.db
 *.js
 *.map
 *.d.ts
-!index.js
-!index.d.ts
