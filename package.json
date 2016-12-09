@@ -1,0 +1,27 @@
+{
+  "name": "angular2-tooltips",
+  "version": "1.0.0",
+  "description": "angular2 module to show tooltips over elements",
+  "main": "index.js",
+  "typings": "./index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "tsc"
+  },
+  "keywords": [
+    "angular2",
+    "tooltip"
+  ],
+  "author": "Lane Olson <lane@onlea.org>",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "^2.3.0",
+    "@angular/core": "^2.3.0",
+    "@angular/platform-browser": "^2.3.0",
+    "rxjs": "^5.0.0-rc.5"
+  },
+  "devDependencies": {
+    "@types/es6-shim": "^0.31.32",
+    "typescript": "^2.1.4"
+  }
+}
