@@ -6,3 +6,5 @@ Thumbs.db
 *.js
 *.map
 *.d.ts
+/compiled
+*.metadata.json

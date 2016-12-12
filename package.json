@@ -10,18 +10,22 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "ngc"
   },
   "keywords": [
     "angular2",
+    "ionic2",
     "tooltip"
   ],
   "author": "Lane Olson <lane@onlea.org>",
   "license": "ISC",
   "devDependencies": {
     "@angular/common": "^2.3.0",
+    "@angular/compiler": "^2.3.0",
+    "@angular/compiler-cli": "^2.3.0",
     "@angular/core": "^2.3.0",
     "@angular/platform-browser": "^2.3.0",
+    "@angular/platform-server": "^2.3.0",
     "rxjs": "^5.0.0-rc.5",
     "typescript": "^2.1.4"
   }

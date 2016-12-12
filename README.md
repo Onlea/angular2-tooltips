@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/angular2-tooltips.svg)](https://www.npmjs.com/package/angular2-tooltips)
+
 # Angular2 Tooltips
 
 Adapted from bharataj88's [angular2-tooltip](https://github.com/bharatraj88/angular2-tooltip) repo.  Allows for custom placement in parents and manually enable / disable.
